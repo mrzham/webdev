@@ -31,7 +31,46 @@
       </div>
     </header>
 </div>
-
+ <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+        <script type="text/javascript">
+       
+        function calc() {
+            
+            var type_design = document.getElementById("type_design");
+            
+            var is_html = document.getElementById("is_html");
+            
+            var count = document.getElementById("count");
+            
+            var result = document.getElementById("result"); 
+ 
+            var price = 0;
+            price += parseInt(type_design.options[type_design.selectedIndex].value);
+            price += (is_html.checked == true) ? parseInt(is_html.value) : 0;
+            price = parseInt(count.value) * price;
+ 
+            result.innerHTML = price;
+        }
+ 
+</script>
+    </head>
+    <body>
+        <b>Хостинг:</b><br/>
+        <select onchange="calc()" id="type_design">
+            <option value="0">Выбрать</option>
+            <option value="99">Year — 1 месяц за 99 ₽</option>
+            <option value="149">Optimo — 1 месяц за 149 ₽</option>
+            <option value="259">Century — 1 месяц за 259 ₽</option>
+			<option value="399">Millennium — 1 месяц за 399 ₽</option>
+        </select><br/>
+        <input type="checkbox" onchange="calc()" value="200" id="is_html" />
+        <label for="is_html">Требуется настройка?</label>
+        <br/>
+        Кол-во вариантов: <input type="text" id="count" value="0" onchange="calc()" />
+        <div>Стоимость  : <span id="result">0</span> руб.</div>
+    </body>
+</html>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
